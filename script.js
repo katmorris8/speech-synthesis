@@ -27,5 +27,10 @@ function toggle(startOver = true) {
   startOver ? speechSynthesis.speak(msg) : null;
 }
 
+function setOption() {
+  console.log(this.name, this.value);
+}
+
 speechSynthesis.addEventListener("voiceschanged", populateVoices);
 voicesDropdown.addEventListener('change', setVoice);
+options.forEach(option => option.addEventListener('change', setOption))
