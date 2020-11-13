@@ -17,4 +17,9 @@ function populateVoices() {
     .join('');
 }
 
+function setVoice() {
+  console.log('changing voice');
+}
+
 speechSynthesis.addEventListener("voiceschanged", populateVoices);
+voicesDropdown.addEventListener('change', setVoice);
