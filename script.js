@@ -10,16 +10,16 @@ msg.text = document.querySelector('[name="text"]').value;
 function populateVoices() {
   voices = this.getVoices();
   voicesDropdown.innerHTML = voices
-    .filter(voice => voice.lang.includes('en'))
+    .filter((voice) => voice.lang.includes("en"))
     .map(
       (voice) =>
         `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`
     )
-    .join('');
+    .join("");
 }
 
 function setVoice() {
-  msg.voice = voices.find(voice => voice.name === this.value)
+  msg.voice = voices.find((voice) => voice.name === this.value);
   toggle();
 }
 
@@ -34,7 +34,7 @@ function setOption() {
 }
 
 speechSynthesis.addEventListener("voiceschanged", populateVoices);
-voicesDropdown.addEventListener('change', setVoice);
-options.forEach(option => option.addEventListener('change', setOption))
-speakButton.addEventListener('click', toggle)
-stopButton.addEventListener('click', () => toggle(false))
+voicesDropdown.addEventListener("change", setVoice);
+options.forEach((option) => option.addEventListener("change", setOption));
+speakButton.addEventListener("click", toggle);
+stopButton.addEventListener("click", () => toggle(false));
